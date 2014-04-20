@@ -1,0 +1,6 @@
+<launch>
+  <node name="serial" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyUSB0"/>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="8081"/>
+  </include>
+</launch>

@@ -1,0 +1,20 @@
+<launch>
+  <arg name="host-server" default="nibbles"/>
+  <arg name="port" default="9090" />
+
+ <machine name="nibbles"
+           address="nibbles"
+           user="dubotics"
+           env-loader="/home/dubotics/src/hydra/devel/env.sh"/>
+
+  <node machine="$(arg host-server)" name="control" pkg="hydra_tests" type="motor_control.py"/>
+
+  <node  name="input" pkg="hydra_crisp" type="input_node">
+    <rosparam param="device">/dev/input/by-id/usb-Logitech_Logitech_Dual_Action-event-joystick</rosparam>
+  </node>
+
+  <!-- rosbridge -->
+  <param name="/rosbridge/port" value="$(arg port)"/>
+  <node machine="$(arg host-server)" name="rosbridge_websocket" pkg="rosbridge_server" type="rosbridge_websocket" output="screen"/>
+  <node machine="$(arg host-server)"  name="rosapi" pkg="rosapi" type="rosapi" />
+</launch>

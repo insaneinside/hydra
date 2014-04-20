@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>hydra_tests</name>
+  <version>0.0.0</version>
+  <description>DUBotics Hydra test files</description>
+
+  <maintainer email="cjsutton@u.washington.edu">Collin J. Sutton</maintainer>
+
+
+  <license>GPLv2</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rosserial_arduino</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>hydra_drive</build_depend>
+  <run_depend>rosserial_arduino</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>hydra_drive</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
