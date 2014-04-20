@@ -33,8 +33,8 @@ static ros::Subscriber<hydra_drive::PowerLevels> subscription ( "power", power_c
 static Servo left, right;
 
 static void power_cb(const hydra_drive::PowerLevels& msg) {
-  left.write_ms(map(data.left, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
-  right.write_ms(map(data.right, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
+  left.writeMicroseconds(map(data.left, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
+  right.writeMicroseconds(map(data.right, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
 }
 
 void setup(){
@@ -47,10 +47,10 @@ void setup(){
 
 
   left.attach(PIN_LEFT);
-  left.write_ms(NEUTRAL_PULSE_WIDTH);
+  left.writeMicroseconds(NEUTRAL_PULSE_WIDTH);
 
   right.attach(PIN_RIGHT);
-  right.write_ms(NEUTRAL_PULSE_WIDTH);
+  right.writeMicroseconds(NEUTRAL_PULSE_WIDTH);
 }
 
 void loop(){
