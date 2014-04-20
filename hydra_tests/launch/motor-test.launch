@@ -1,7 +1,7 @@
 <launch>
-  <node name="serial" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0"/>
-  <node name="control" pkg="hydra_tests" type="motor_control.py"/>
-  <node name="input" pkg="hydra_crisp" type="input_node">
-    <rosparam param="device">/dev/input/by-id/usb-Logitech_Logitech_Dual_Action-event-joystick</rosparam>
-  </node>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="8081"/>
+  </include>
+  <node name="drive_logic" pkg="hydra_drive" type="hydra_drive_logic.py"/>
+  <node name="serial" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyUSB0"/>
 </launch>
