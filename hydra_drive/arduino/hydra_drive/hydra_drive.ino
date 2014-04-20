@@ -26,21 +26,21 @@
 #define NEUTRAL_PULSE_WIDTH 1500
 #define MAX_PULSE_WIDTH 2041
 
-ros::NodeHandle  nh;
-ros::Subscriber<hydra_drive::PowerLevels> subscription ( "power", power_cb );
-Servo left, right;
+static void power_cb(const hydra_drive::PowerLevels& msg);
 
-void power_cb(const hydra_drive::PowerLevels& msg) {
+static ros::NodeHandle  nh;
+static ros::Subscriber<hydra_drive::PowerLevels> subscription ( "power", power_cb );
+static Servo left, right;
+
+static void power_cb(const hydra_drive::PowerLevels& msg) {
   left.write_ms(map(data.left, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
   right.write_ms(map(data.right, -1.0, 1.0, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH));
-
 }
 
 void setup(){
   nh.initNode();
   
-  nh.subscribe(sub1);
-  nh.subscribe(sub2);
+  nh.subscribe(subscription);
 
   pinMode(PIN_LEFT, OUTPUT);
   pinMode(PIN_RIGHT, OUTPUT);
