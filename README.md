@@ -29,7 +29,7 @@ environment variables.
 Now you should be able to run e.g.
 
 ````shell
-roslaunch hydra_test motor-test.launch
+roslaunch hydra_tests motor-test.launch
 ````
 
 ## Packages
