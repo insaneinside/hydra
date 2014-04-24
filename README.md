@@ -5,6 +5,8 @@ intro later.
 
 ## Setup
 
+### Source Checkout and Directory Setup
+
 This repository contains ROS packages.  To use these packages, clone the
 packages into a Catkin workspace directory `src` inside some scratch directory
 (`hydra` in this case):
@@ -21,16 +23,24 @@ system-installed ROS build file.  (Don't forget to load the setup file
 [`/opt/ros/<ros_distro>/setup.*`] appropriate to your shell and ROS
 installation prior to running that or any ROS-related commands.)
 
-Run `catkin_make` from your scratch directory to build the packages.  Once the
-build completes successfully, you can source the shell-specific `setup.*` file
-from `devel/` to add the locations of the newly-built packages to the ROS
-environment variables.
 
+### Building
+
+Run `catkin_make` from your scratch directory to build the packages.
+
+
+### Running
+
+Once the build completes successfully, you can source the shell-specific
+`setup.*` file from `devel/` (`source devel/setup.bash` will work for most
+users) to add the locations of the newly-built packages to the ROS environment
+variables.
 Now you should be able to run e.g.
 
 ````shell
 roslaunch hydra_tests motor-test.launch
 ````
+
 
 ## Packages
 
