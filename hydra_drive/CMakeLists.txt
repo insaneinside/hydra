@@ -157,6 +157,7 @@ set(hydra_drive_twist_speed_mapper_LIBS "${hydra_drive_twist_speed_mapper_LIBS_N
 ## in contrast to setup.py, you can choose the destination
  install(PROGRAMS
    scripts/hydra_drive_logic.py
+   scripts/pygame_drive_control.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
