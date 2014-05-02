@@ -24,6 +24,7 @@
 #define PUBLISHER_QUEUE_SIZE 128
 
 PLUGINLIB_DECLARE_CLASS(hydra_drive, TwistSpeedMapper, hydra_drive::TwistSpeedMapper, nodelet::Nodelet)
+PLUGINLIB_EXPORT_CLASS(hydra_drive::TwistSpeedMapper, nodelet::Nodelet)
 
 namespace hydra_drive
 {

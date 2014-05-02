@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<library path="lib/TwistSpeedMapper">
+<library path="lib/libhydra_drive_twist_speed_mapper">
   <class name="hydra_drive/TwistSpeedMapper" type="hydra_drive::TwistSpeedMapper" base_class_type="nodelet::Nodelet">
     <description>Converts geometry_msgs/Twist received on `~cmd_vel` to
     hydra_drive/TreadSpeeds published on `~tread_speeds_target`.

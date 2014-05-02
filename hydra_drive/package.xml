@@ -18,9 +18,11 @@
 
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>nodelet</build_depend>
   <build_depend>geometry_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>message_generation</build_depend>
+  <run_depend>nodelet</run_depend>
   <run_depend>message_runtime</run_depend>
   <run_depend>geometry_msgs</run_depend>
   <run_depend>std_msgs</run_depend>
@@ -28,5 +30,7 @@
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
+    <hydra_drive plugin="${prefix}/nodelet_plugins.xml" />
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
   </export>
 </package>
