@@ -133,7 +133,7 @@ add_dependencies(hydra_drive_twist_speed_mapper
 # actual library name, then using `find_library` to determine its path on the
 # local system.
 set(hydra_drive_twist_speed_mapper_LIBS ${catkin_LIBRARIES} ${geometry_msgs_LIBRARIES})
-string(REPLACE "/usr/lib/lib" "/usr/lib/i386-linux-gnu/lib" hydra_drive_twist_speed_mapper_LIBS "${hydra_drive_twist_speed_mapper_LIBS}")
+string(REPLACE "/usr/lib/lib" "/usr/lib/${CMAKE_LIBRARY_ARCHITECTURE}/lib" hydra_drive_twist_speed_mapper_LIBS "${hydra_drive_twist_speed_mapper_LIBS}")
 foreach(lib ${hydra_drive_twist_speed_mapper_LIBS})
   get_filename_component(libfile "${lib}" NAME_WE)
   string(REGEX REPLACE "^lib" "" libfile "${libfile}")
