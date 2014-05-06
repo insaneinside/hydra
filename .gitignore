@@ -38,3 +38,4 @@ nosetests.xml
 
 # Pesky pre-revision-control *~ backup files
 *~
+CMakeLists.txt
