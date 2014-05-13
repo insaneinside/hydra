@@ -47,7 +47,7 @@ namespace hydra_drive
     nh.getParam("wheel_base", m_wheel_base);
     m_subscriber = nh.subscribe<geometry_msgs::Twist>("cmd_vel", SUBSCRIBER_QUEUE_SIZE, 
                                                       &TwistSpeedMapper::handleCmdVel, this);
-    m_publisher = nh.advertise<hydra_drive::TreadSpeeds>("tread_speeds_target", PUBLISHER_QUEUE_SIZE);;
+    m_publisher = nh.advertise<hydra_drive::TreadSpeeds>("tread_speeds_target", PUBLISHER_QUEUE_SIZE);
     NODELET_INFO("TwistSpeedMapper initialized.");
   }
 
