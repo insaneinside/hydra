@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library path="lib/libhydra_imu">
+  <class name="hydra_imu/IMUDataScaler" type="hydra_imu::IMUDataScaler" base_class_type="nodelet::Nodelet">
+    <description>Scales raw MinIMU9v3 data</description>
+  </class>
+  <class name="hydra_imu/HoltWintersIMUFilter" type="hydra_imu::HoltWintersIMUFilter" base_class_type="nodelet::Nodelet">
+    <description>Holt-Winters smoothing for IMU data</description>
+  </class>
+  <class name="hydra_imu/AHRS" type="hydra_imu::AHRS" base_class_type="nodelet::Nodelet">
+    <description>AHRS nodelet</description>
+  </class>
+</library>

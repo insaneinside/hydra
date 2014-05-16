@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
   <arg name="device" default="/dev/ttyUSB0"/>
-  <param name="/imu/publish_rate" value="50"/>
-  <param name="/imu/update_rate" value="100"/>
-  <param name="/imu/samples_per_message" value="2"/>
-  <node name="serial" pkg="rosserial_python" type="serial_node.py" args="$(arg device)"/>
+
+  <node name="nodelet_manager" pkg="nodelet" type="nodelet" args="manager"
+        output="screen"/>
+  <node name="scaler" pkg="nodelet" type="nodelet" args="load hydra_imu/IMUDataScaler nodelet_manager"/>
+
+  <node name="smoother" pkg="nodelet" type="nodelet" args="load hydra_imu/HoltWintersIMUFilter nodelet_manager">
+    <remap from="input" to="imu/data"/>
+    <remap from="output" to="imu/smoothed"/>
+    <rosparam command="load" file="$(find hydra_tests)/param/HoltWintersIMUFilter.yaml"/>
+  </node>
+  <node name="ahrs" pkg="nodelet" type="nodelet" args="load hydra_imu/AHRS nodelet_manager">
+    <remap from="input" to="imu/smoothed"/>
+    <remap from="output" to="imu/calibrated"/>
+  </node>
+
+  <node name="serial" pkg="rosserial_python" type="serial_node.py" args="$(arg device)">
+    <param name="baud" value="500000"/>
+  </node>
 </launch>

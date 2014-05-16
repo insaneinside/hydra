@@ -44,11 +44,6 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
-## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  RawIMUData.msg
-)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -65,10 +60,10 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages()
-
+# generate_messages(
 #   DEPENDENCIES
 #   std_msgs
+#   geometry_msgs
 # )
 
 ###################################
@@ -80,12 +75,12 @@ generate_messages()
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
+# catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES motor_control
- CATKIN_DEPENDS message_runtime
-#  DEPENDS system_lib
-)
+#  LIBRARIES IMUDataScaler
+#  CATKIN_DEPENDS message_runtime
+# #  DEPENDS system_lib
+# )
 
 ###########
 ## Build ##
@@ -96,7 +91,8 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
-)
+  ${geometry_msgs_INCLUDE_DIRS}
+  )
 
 ## Declare a cpp library
 # add_library(motor_control

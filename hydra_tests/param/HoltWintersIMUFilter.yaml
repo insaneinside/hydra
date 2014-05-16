@@ -1,0 +1,10 @@
+---
+linear_acceleration:
+  apha: 0.35
+  beta: 0.15
+angular_velocity:
+  alpha: 0.35
+  beta: 0.15
+magnetic_field:
+  apha: 0.35
+  beta: 0.15
