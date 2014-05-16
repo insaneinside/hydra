@@ -4,7 +4,7 @@
  *
  * This sketch demonstrates the control of hobby R/C servos
  * using ROS and the arduiono
- * 
+ *
  * For the full tutorial write up, visit
  * www.ros.org/wiki/rosserial_arduino_demos
  *
@@ -14,7 +14,7 @@
  */
 
 #include <Arduino.h>
-#include <Servo.h> 
+#include <Servo.h>
 
 #include <ros.h>
 #include <hydra_drive/PowerLevels.h>
@@ -51,7 +51,7 @@ static void power_cb(const hydra_drive::PowerLevels& msg) {
 
 void setup(){
   nh.initNode();
-  
+
   nh.subscribe(subscription);
   nh.advertise(publisher);
 
