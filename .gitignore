@@ -38,4 +38,6 @@ nosetests.xml
 
 # Pesky pre-revision-control *~ backup files
 *~
-CMakeLists.txt
+
+# Root CMakeLists.txt (should be symlinked/copied by catkin_init_workspace post-checkout)
+/CMakeLists.txt
